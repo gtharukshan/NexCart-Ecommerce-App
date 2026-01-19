@@ -94,7 +94,7 @@ class _CartContainerState extends State<CartContainer> {
                             width: 2,
                           ),
                           Text(
-                            "\₹${widget.old_price}",
+                            "\LKR${widget.old_price}",
                             style: TextStyle(
                                 fontSize: 16,
                                 fontWeight: FontWeight.w500,
@@ -104,7 +104,7 @@ class _CartContainerState extends State<CartContainer> {
                             width: 8,
                           ),
                           Text(
-                            "\₹${widget.new_price}",
+                            "\LKR${widget.new_price}",
                             style: TextStyle(
                                 fontSize: 18, fontWeight: FontWeight.w600),
                           ),
@@ -197,7 +197,7 @@ class _CartContainerState extends State<CartContainer> {
                   width: 8,
                 ),
                 Text(
-                  "\₹${widget.new_price * count}",
+                  "\LKR${widget.new_price * count}",
                   style: TextStyle(fontSize: 24, fontWeight: FontWeight.w700),
                 ),
               ],

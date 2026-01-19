@@ -20,7 +20,7 @@ class _ZoneContainerState extends State<ZoneContainer> {
     int random= Random().nextInt(2);
 
     List <String> quotes=[
-      "Starting at ₹$price",
+      "Starting at LKR$price",
       "Get upto $dis% off"
     ];
 

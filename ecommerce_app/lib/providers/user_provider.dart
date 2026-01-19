@@ -1,40 +1,101 @@
+// import 'dart:async';
+//
+// import 'package:cloud_firestore/cloud_firestore.dart';
+// import 'package:ecommerce_app/controllers/db_service.dart';
+// import 'package:ecommerce_app/models/user_model.dart';
+// import 'package:flutter/material.dart';
+//
+// class UserProvider extends ChangeNotifier{
+//   StreamSubscription<DocumentSnapshot>? _userSubscription;
+//
+//   String name ="User";
+//   String email ="";
+//   String address ="";
+//   String phone ="";
+//
+//   UserProvider(){
+//     loadUserData();
+//   }
+//
+//    // load user profile data
+//   void loadUserData(){
+//
+//      _userSubscription?.cancel();
+//     _userSubscription = DbService().readUserData().listen((snapshot) {
+//       print(snapshot.data());
+//       final UserModel data = UserModel.fromJson(snapshot.data() as Map<String, dynamic>);
+//       name = data.name;
+//       email = data.email;
+//       address = data.address;
+//       phone = data.phone;
+//       notifyListeners();
+//     });
+//
+//   }
+//
+//   void cancelProvider(){
+//     _userSubscription?.cancel();
+//   }
+//
+//   @override
+//   void dispose() {
+//     cancelProvider();
+//     super.dispose();
+//   }
+//
+// }
+
 import 'dart:async';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:ecommerce_app/controllers/db_service.dart';
 import 'package:ecommerce_app/models/user_model.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/foundation.dart';
 
-class UserProvider extends ChangeNotifier{
+class UserProvider extends ChangeNotifier {
   StreamSubscription<DocumentSnapshot>? _userSubscription;
 
-  String name ="User";
-  String email ="";
-  String address ="";
-  String phone ="";
+  String name = "User";
+  String email = "";
+  String address = "";
+  String phone = "";
 
-  UserProvider(){
+  UserProvider() {
     loadUserData();
   }
 
-   // load user profile data
-  void loadUserData(){
-   
-     _userSubscription?.cancel();
+  // Load user profile data
+  void loadUserData() {
+    _userSubscription?.cancel();
     _userSubscription = DbService().readUserData().listen((snapshot) {
       print(snapshot.data());
-      final UserModel data = UserModel.fromJson(snapshot.data() as Map<String, dynamic>);
-      name = data.name;
-      email = data.email;
-      address = data.address;
-      phone = data.phone;
-      notifyListeners();
+      if (snapshot.exists && snapshot.data() != null) {
+        final UserModel data = UserModel.fromJson(snapshot.data() as Map<String, dynamic>);
+        name = data.name;
+        email = data.email;
+        address = data.address;
+        phone = data.phone;
+        notifyListeners();
+      }
     });
- 
   }
 
-  void cancelProvider(){
+  void cancelProvider() {
     _userSubscription?.cancel();
+  }
+
+  // Method to manually update user data (for immediate UI updates)
+  void updateUserDataLocally({
+    String? newName,
+    String? newEmail,
+    String? newAddress,
+    String? newPhone,
+  }) {
+    if (newName != null) name = newName;
+    if (newEmail != null) email = newEmail;
+    if (newAddress != null) address = newAddress;
+    if (newPhone != null) phone = newPhone;
+    notifyListeners();
   }
 
   @override
@@ -42,8 +103,4 @@ class UserProvider extends ChangeNotifier{
     cancelProvider();
     super.dispose();
   }
-
-  
-
-
 }
