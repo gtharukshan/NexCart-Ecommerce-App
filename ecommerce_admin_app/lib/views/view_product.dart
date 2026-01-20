@@ -48,7 +48,7 @@ class _ViewProductState extends State<ViewProduct> {
                     children: [
                    
                       Text(
-                        "₹ ${arguments.old_price}",
+                        "LKR ${arguments.old_price}",
                         style: TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.w500,
@@ -57,7 +57,7 @@ class _ViewProductState extends State<ViewProduct> {
                       ),
                       SizedBox(width: 10,),
                       Text(
-                        "₹ ${arguments.new_price}",
+                        "LKR ${arguments.new_price}",
                         style: TextStyle(
                             fontSize: 20,
                             fontWeight: FontWeight.w800,

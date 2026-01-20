@@ -246,7 +246,7 @@ class _ProductsPageState extends State<ProductsPage> {
                                   Row(
                                     children: [
                                       Text(
-                                        "₹${product.new_price}",
+                                        "LKR${product.new_price}",
                                         style: TextStyle(
                                           fontSize: 14, // Slightly smaller
                                           fontWeight: FontWeight.w700,
@@ -255,7 +255,7 @@ class _ProductsPageState extends State<ProductsPage> {
                                       ),
                                       SizedBox(width: 4),
                                       Text(
-                                        "₹${product.old_price}",
+                                        "LKR${product.old_price}",
                                         style: TextStyle(
                                           fontSize: 10, // Smaller
                                           color: Colors.grey.shade600,

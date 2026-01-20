@@ -237,7 +237,7 @@ class _ModifyProductState extends State<ModifyProduct> {
                       child: _buildTextField(
                         controller: oldPriceController,
                         label: "Original Price",
-                        hint: "₹ 0",
+                        hint: "LKR 0",
                         icon: Icons.attach_money_outlined,
                         keyboardType: TextInputType.number,
                       ),
@@ -247,7 +247,7 @@ class _ModifyProductState extends State<ModifyProduct> {
                       child: _buildTextField(
                         controller: newPriceController,
                         label: "Selling Price",
-                        hint: "₹ 0",
+                        hint: "LKR 0",
                         icon: Icons.price_change_outlined,
                         keyboardType: TextInputType.number,
                       ),
